@@ -11,4 +11,7 @@ for f in $(find outputs -name "id*") corpus/*; do
     cp $f temp/$h;
 done;
 
+rm -r corpus outputs;
+
 afl-cmin -i ./temp -o ./corpus ./run_script @@
+
