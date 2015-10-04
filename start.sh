@@ -8,6 +8,8 @@ export AFL_SKIP_CPUFREQ=1
 mkdir outputs;
 
 nohup afl-fuzz -i corpus/ -o outputs -M fuzzer ./run_script @@ >/dev/null 2>/dev/null &
-for i in $(seq 1 $(nproc)); do
+declate -i NPROC;
+NPROC=$(nproc)*2
+for i in $(seq 1 $NPROC); do
     nohup afl-fuzz -i corpus/ -o outputs -S fuzzer$i ./run_script @@ >/dev/null 2>/dev/null &
 done;
