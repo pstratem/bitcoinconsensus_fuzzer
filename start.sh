@@ -3,6 +3,8 @@
 export LD_LIBRARY_PATH="/usr/local/lib"
 export AFL_SKIP_CPUFREQ=1
 
+killall afl-fuzz;
+
 ./consolidate.sh
 
 mkdir outputs;
